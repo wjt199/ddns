@@ -80,6 +80,6 @@ if CACHED_IP != PUBLIC_IP:
         req = request.Request(GOD_ADDY_API_URL, data=data, headers=HEADERS, method='PUT')
         with request.urlopen(req) as response:
             print("Success!" if not response.read().decode('utf-8') else "Success!")
-            open('/tmp/current_ip', mode="w", encoding="utf-8").write(PUBLIC_IP)
+            open(CACHED_IP_FILE, mode="w", encoding="utf-8").write(PUBLIC_IP)
 else:
     print("Current 'Public IP' matches 'Cached IP' recorded. No update required!")
